@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical" android:id="@+id/ScrollView">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout1"
+        android:layout_height="fill_parent"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Food Suggestions"
+            android:textSize="30dp"/>
+
+        <TextView android:text="@string/textView1"
+            android:id="@+id/Breakfast_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView2"
+            android:id="@+id/Breakfast_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView3"
+            android:id="@+id/Lunch_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView4"
+            android:id="@+id/Lunch_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView5"
+            android:id="@+id/MidAfternoon_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView6"
+            android:id="@+id/MidAfternoon_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView7"
+            android:id="@+id/Dinner_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView android:text="@string/textView8"
+            android:id="@+id/Dinner_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </LinearLayout>
+</ScrollView>
