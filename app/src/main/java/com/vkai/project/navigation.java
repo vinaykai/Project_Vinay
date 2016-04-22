@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -110,15 +111,17 @@ public class navigation extends AppCompatActivity
 
         if (id == R.id.nav_startrun)
         {
-            if(!supportMapFragment.isAdded())
+           Intent intent = new Intent(navigation.this,WalkingRoute.class);
+            startActivity(intent);
+            /*if(!supportMapFragment.isAdded())
                 fm1.beginTransaction().add(R.id.map, supportMapFragment).commit();
             else
                 fm1.beginTransaction().show(supportMapFragment).commit();
-
+*/
 
         } else if (id == R.id.nav_nearby) {
 
-            Intent intent = new Intent(navigation.this , GymOptionsActivity.class);
+            Intent intent = new Intent(navigation.this , NearbyPlacesActivity.class);
             startActivity(intent);
 
 
@@ -150,7 +153,23 @@ public class navigation extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_share) {
+
+        }
+        else if (id == R.id.nav_userprofile) {
+
+            Bundle bundle = getIntent().getExtras();
+            int user_id = bundle.getInt("id1");
+            String email = bundle.getString("email");
+            Bundle bundle1 = new Bundle();
+            bundle1.putInt("id1", user_id);
+            Toast.makeText(getApplicationContext(), "id is" + user_id, Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(navigation.this, UserProfileActivity.class);
+            intent.putExtras(bundle1);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+            else if (id == R.id.nav_share) {
 
 
 

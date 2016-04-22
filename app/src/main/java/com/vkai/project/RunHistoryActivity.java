@@ -1,42 +1,95 @@
 package com.vkai.project;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+/**
+ * Created by Ria on 4/7/2016.
+ */
 
-public class RunHistoryActivity extends AppCompatActivity {
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+
+public class RunHistoryActivity extends Activity {
+
+    TableLayout table_layout;
+    TableRunHistory sqlcon;
+    ProgressDialog PD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run_history);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        sqlcon = new TableRunHistory(this);
+        table_layout = (TableLayout) findViewById(R.id.tableLayout2);
+        BuildTable();
+        new MyAsync().execute();
+    }
+    private void BuildTable() {
 
-        ListView myListView=(ListView)findViewById(R.id.mylistView);
-        String [] historyL={"id(1):   miles    timeStart         time","id(2):   miles    timeStart         time","id(3):   miles    timeStart         time","id(4):   miles    timeStart         time","id(5):   miles    timeStart         time","id(6):   miles    timeStart         time","id(7):   miles    timeStart         time","id(8):   miles    timeStart         time" };
-        ListAdapter myListAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,historyL);
-        myListView.setAdapter(myListAdapter);
-
-        myListView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                        Intent a = new Intent(RunHistoryActivity.this, detail.class);
-                        startActivity(a);
-
-                    }
-                }
-        );
+        sqlcon.open();
+        Cursor c = sqlcon.readEntry();
+        int rows = c.getCount();
+        int cols = c.getColumnCount();
+        c.moveToFirst();
+        // outer for loop
+        for (int i = 0; i < rows; i++) {
+            TableRow row = new TableRow(this);
+            row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+                    TableRow.LayoutParams.WRAP_CONTENT));
+            // inner for loop
+            for (int j = 0; j < cols; j++) {
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
+                        TableRow.LayoutParams.WRAP_CONTENT));
+                // tv.setBackgroundResource(R.drawable.cell_shape);
+                tv.setGravity(Gravity.CENTER);
+                tv.setTextSize(18);
+                tv.setPadding(0, 5, 0, 5);
+                tv.setText(c.getString(j)+"       ");
+                row.addView(tv);
+            }
+            c.moveToNext();
+            table_layout.addView(row);
+        }
+        sqlcon.close();
     }
 
+    private class MyAsync extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            table_layout.removeAllViews();
+
+            PD = new ProgressDialog(RunHistoryActivity.this);
+            PD.setTitle("Please Wait..");
+            PD.setMessage("Loading...");
+            PD.setCancelable(false);
+            PD.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            sqlcon.open();
+            // BuildTable();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            BuildTable();
+            PD.dismiss();
+        }
+
+
+    }
 }

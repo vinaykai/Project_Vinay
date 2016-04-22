@@ -10,6 +10,10 @@
     <string name="FoodSuggestionActivity">FoodSuggestionActivity</string>
     <string name="StatisticsActivity">StatisticsActivity</string>
     <string name="GymOptionsActivity">GymOptionsActivity</string>
+    <string name="title_activity_walking_route">WalkingRoute</string>
+    <string name="NearbyPlacesActivity">NearbyPlacesActivity</string>
+    <string name="server_client_id">570983106334-b6mcj5c7mdnrk1i4h7sgb32slp1e3u0g.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">223604414667150</string>
 
 
     <string name="textView1">textView1</string>
@@ -25,6 +29,10 @@
     <string name="title_activity_video">VideoActivity</string>
     <string name="title_activity_sport">SportActivity</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_activity_table_history">TableHistoryActivity</string>
+    <string name="title_activity_nearby_places">NearbyPlacesActivity</string>
+    <string name="title_activity_edit_sport">EditSport</string>
 
 
 </resources>

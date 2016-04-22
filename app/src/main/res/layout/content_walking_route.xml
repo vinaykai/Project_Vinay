@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    <!--<LinearLayout
+        android:id="@+id/LL1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvSource"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:text="Enter Source Address: "/>
+
+        <EditText
+            android:id="@+id/text_Source"
+            android:layout_width="600dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/tvSource"
+            android:text="" />
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LL2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@id/LL1"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvDest"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:text="Enter Destination Address: "/>
+
+            <EditText
+                android:id="@+id/text_Dest"
+                android:layout_width="600dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/tvDest"
+                android:text="" />
+        </LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/LL3"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_StartRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Start Run"
+            android:onClick="GetStartTime"/>
+
+        <Button
+            android:id="@+id/btn_StopRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Stop Run"
+            android:onClick="GetStopTime"/>
+
+
+    </LinearLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LL3"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+</RelativeLayout>
+
+

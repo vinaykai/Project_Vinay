@@ -5,7 +5,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_startrun"
-            android:icon="@drawable/ic_menu_map"
+            android:icon="@drawable/running_a"
             android:title="Start Run" />
         <item
             android:id="@+id/nav_nearby"
@@ -16,7 +16,7 @@
             android:id="@+id/nav_runhistory"
             android:icon="@android:drawable/ic_menu_recent_history"
             android:title="Runs History" />
-            <!--android:icon="@drawable/ic_menu_slideshow"-->
+        <!--android:icon="@drawable/ic_menu_slideshow"-->
         <item
             android:id="@+id/nav_stat"
             android:icon="@android:drawable/ic_menu_agenda"
@@ -24,14 +24,20 @@
 
         <item
             android:id="@+id/nav_exercisevideos"
-            android:icon="@drawable/ic_media_play"
+            android:icon="@drawable/video_icon_a"
             android:title="Exercise videos" />
-        <!--android:icon="@drawable/ic_menu_manage"-->
+        <!--android:icon="@drawable/ic_media_play"-->
         <item
             android:id="@+id/nav_foodsuggestion"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="Food Suggestions" />
         <!--android:icon="@drawable/ic_media_play"-->
+        <item
+            android:id="@+id/nav_userprofile"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="User Profile" />
+        <!--android:icon="@drawable/ic_media_play"-->
+
     </group>
 
     <item android:title="Communicate">
@@ -42,8 +48,8 @@
                 android:title="Share" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@drawable/poweroff_a"
+                android:title="Sign off" />
         </menu>
     </item>
 
